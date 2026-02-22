@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Website</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <!-- Logo -->
+  <a href="#home" class="logo">
+    <i class="fa-solid fa-code"></i>
+    <span class="logo-text">Elijah Tucker</span>
+  </a>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="menu-toggle" aria-label="Open menu" role="button" tabindex="0">
+      <i class="fas fa-bars"></i>
+    </div>
+
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#volunteering">Volunteering</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#music">Music</a></li>
+      <li><a href="#illustrations">Illustrations</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- HERO / HOME -->
+<section class="hero" id="home">
+  <div class="content">
+    <h2>
+      Computer Science Student |
+      <span class="typing-text">Aspiring Software Engineer</span>
+    </h2>
+
+    <p>
+      Junior Computer Science student at NC A&amp;T passionate about building
+      practical software, full-stack applications, and data-driven systems.
+    </p>
+
+    <div class="cta-buttons">
+  <a href="#projects" class="btn btn-primary">
+    <i class="fas fa-code"></i> View Projects
+  </a>
+
+  <a href="#contact" class="btn btn-secondary">
+    <i class="fas fa-paper-plane"></i> Contact Me
+  </a>
+
+  <!-- Resume Button -->
+  <a href="resume.pdf" class="btn btn-secondary" target="_blank">
+    <i class="fa-solid fa-file"></i> Resume
+  </a>
+</div>
+
+    <div class="social-icons">
+      <a href="https://github.com/Ectucker06" target="_blank" rel="noreferrer">
+        <i class="fab fa-github"></i>
+      </a>
+
+      <a href="https://linkedin.com/in/elijah-tucker-0aa241290" target="_blank" rel="noreferrer">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </div>
+  </div>
+
+  <div class="profile-container">
+    <div class="border-outer"></div>
+    <div class="border-middle"></div>
+    <div class="border-inner"></div>
+    <div class="border-container"></div>
+
+    <div class="pulse-ring"></div>
+    <div class="pulse-ring"></div>
+    <div class="pulse-ring"></div>
+
+    <img src="images/profile.png" alt="Profile Picture" class="profile-img">
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section reveal" id="about">
+  <div class="container">
+    <h2 class="section-title">About</h2>
+    <p class="section-text">
+      I’m Elijah Charles Bruce Tucker, a first-generation junior Computer Science student at NC A&amp;T.
+      I started college at 17 with little programming experience, but through research, networking, and projects
+      I’ve grown into building full-stack apps and developing AI-driven tools. I’m motivated by understanding how systems
+      work end-to-end, how data moves through them, and how information is presented to users. Continuous development and study
+      is how I learn to express my creativity through my work.
+    </p>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="section reveal" id="experience">
+  <div class="container">
+    <h2 class="section-title">Experience</h2>
+
+    <article class="wide-card">
+      <img src="images/epa.png" alt="EPA logo" class="wide-logo">
+
+      <div class="wide-content">
+        <h3 class="wide-title">Environmental Protection Agency (EPA) — Intern</h3>
+        <div class="wide-meta">Durham, NC | Spring 2023</div>
+
+        <ul class="wide-list">
+          <li>Assisted with data collection, analysis, and visualization to support environmental research and policy initiatives.</li>
+          <li>Organized datasets between 11 team members using Python (Pandas), improving workflow efficiency by ~9%.</li>
+          <li>Conducted literature reviews on regulations, sustainability practices, and compliance standards.</li>
+          <li>Prepared reports, presentations, and briefing materials for stakeholders.</li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- VOLUNTEERING -->
+<section class="section reveal" id="volunteering">
+  <div class="container">
+    <h2 class="section-title">Volunteering &amp; Networking</h2>
+    <p class="section-text">Building community and social skills; learning with other engineers.</p>
+
+    <article class="wide-card">
+      <img src="images/acm.png" alt="NCAT ACM logo" class="wide-logo">
+
+      <div class="wide-content">
+        <h3 class="wide-title">NC A&amp;T ACM — Member</h3>
+        <div class="wide-meta">Greensboro, NC | Ongoing</div>
+
+        <p class="wide-paragraph">
+          An active ACM member at NC A&amp;T, participating in technical workshops, coding challenges, hackathons,
+          and cybersecurity competitions. Through ACM, I developed technical and professional skills through resume reviews,
+          mock interviews, career prep events, and collaborative problem-solving with peers across computer science and engineering disciplines.
+        </p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="section reveal" id="projects">
+  <div class="container">
+    <h2 class="section-title">Projects</h2>
+
+    <div class="projects-grid">
+
+      <article class="project-card">
+        <img src="images/medtronic.png" alt="AI Medical Translator preview" class="project-img">
+        <div class="project-body">
+          <h3>AI Medical Translator</h3>
+          <p>
+            Designed the UI/UX and debugged the AI chatbot pipeline, resulting in a stable,
+            visually polished demo that communicated clearly to judges and users.
+          </p>
+          <div class="project-links">
+            <a class="btn btn-secondary" href="https://github.com/ifwoctopi/2025-Fall-Hackathon" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <img src="images/relic.png" alt="Relic of Thragg preview" class="project-img">
+        <div class="project-body">
+          <h3>Relic of Thragg (Unity)</h3>
+          <p>
+            Produced sound design, 3D models, and visual transitions that brought the game to life,
+            supporting smooth integration with backend gameplay systems.
+          </p>
+          <div class="project-links">
+            <a class="btn btn-secondary" href="https://github.com/ifwoctopi/Alien-Escape" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <img src="images/afropix.png" alt="AfroPix preview" class="project-img">
+        <div class="project-body">
+          <h3>AfroPix</h3>
+          <p>
+            Helped shape the project concept and theme, designed the Scarab identity, and guided direction
+            toward a focused Black history platform.
+          </p>
+          <div class="project-links">
+            <a class="btn btn-secondary" href="https://github.com/SuperiorPython/AfroPix" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <img src="images/prog.png" alt="Forecasting project preview" class="project-img">
+        <div class="project-body">
+          <h3>Forecasting Project</h3>
+          <p>
+            Built a forecasting workflow analyzing trends, seasonality, and uncertainty using preprocessing,
+            EDA, and evaluation of statistical + ML models.
+          </p>
+          <div class="project-links">
+            <a class="btn btn-secondary" href="#" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section reveal" id="skills">
+  <div class="container">
+
+    <h2 class="section-title">Skills</h2>
+    <p class="section-text">Technologies, tools, and problem-solving strengths</p>
+
+    <div class="skills-marquee">
+      <div class="skills-track">
+
+        <!-- Set 1 -->
+        <span class="chip">JavaScript</span>
+        <span class="chip">Python</span>
+        <span class="chip">Java</span>
+        <span class="chip">C++</span>
+        <span class="chip">MySQL</span>
+        <span class="chip">Git & GitHub</span>
+        <span class="chip">Supabase</span>
+        <span class="chip">APIs</span>
+        <span class="chip">Unity</span>
+        <span class="chip">Adobe Creative Suite</span>
+        <span class="chip">Troubleshooting</span>
+        <span class="chip">Debugging</span>
+        <span class="chip">Data Analysis</span>
+        <span class="chip">UI/UX Design</span>
+
+        <!-- Duplicate Set (for seamless loop) -->
+        <span class="chip">JavaScript</span>
+        <span class="chip">Python</span>
+        <span class="chip">Java</span>
+        <span class="chip">C++</span>
+        <span class="chip">MySQL</span>
+        <span class="chip">Git & GitHub</span>
+        <span class="chip">Supabase</span>
+        <span class="chip">APIs</span>
+        <span class="chip">Unity</span>
+        <span class="chip">Adobe Creative Suite</span>
+        <span class="chip">Troubleshooting</span>
+        <span class="chip">Debugging</span>
+        <span class="chip">Data Analysis</span>
+        <span class="chip">UI/UX Design</span>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section reveal" id="contact">
+  <div class="container">
+    <h2 class="section-title">Contact</h2>
+    <p class="section-text">Want to connect? Email me or reach out on LinkedIn.</p>
+
+    <div class="contact-actions">
+      <a class="btn btn-primary" id="emailBtn"
+         href="mailto:AuroraMail942@gmail.com?subject=Portfolio%20Contact">
+        <i class="fa-solid fa-envelope"></i> Email Me
+      </a>
+
+      <a class="btn btn-secondary"
+         href="https://linkedin.com/in/elijah-tucker-0aa241290"
+         target="_blank" rel="noreferrer">
+        LinkedIn
+      </a>
+    </div>
+
+    <!-- Reveal email fallback (hidden until button click) -->
+    <p id="emailReveal" style="margin-top:14px; color:#c2c6d3; display:none;">
+      Email: <a href="mailto:AuroraMail942@gmail.com" style="color:inherit; text-decoration:underline;">
+        AuroraMail942@gmail.com
+      </a>
+    </p>
+  </div>
+</section>
+
+<<!-- MUSIC -->
+<section class="section reveal" id="music">
+  <div class="container">
+    <h2 class="section-title">Music</h2>
+    <p class="section-text">Piano performance clips, practice runs, and favorite moments.</p>
+
+    <div class="carousel">
+      <button class="carousel-btn prev" data-carousel="music" aria-label="Previous music">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+
+      <div class="carousel-track" id="musicTrack">
+
+        <article class="media-card">
+          <video class="media-thumb" controls preload="metadata">
+            <source src="piano-01.mp4" type="video/mp4">
+          </video>
+          <div class="media-meta">
+            <h3>Personal Cover</h3>
+            <p>Rebbecca Sugar's "Love Like You".</p>
+          </div>
+        </article>
+
+        <article class="media-card">
+          <video class="media-thumb" controls preload="metadata">
+            <source src="piano-02.mp4" type="video/mp4">
+          </video>
+          <div class="media-meta">
+            <h3>Personal Cover</h3>
+            <p>Akuma No Ko.</p>
+          </div>
+        </article>
+
+        <article class="media-card">
+          <video class="media-thumb" controls preload="metadata">
+            <source src="piano-03.mp4" type="video/mp4">
+          </video>
+          <div class="media-meta">
+            <h3>Jazz Ensemble</h3>
+            <p>Black Jack.</p>
+          </div>
+        </article>
+
+      </div>
+
+      <button class="carousel-btn next" data-carousel="music" aria-label="Next music">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ILLUSTRATIONS -->
+<section class="section reveal" id="illustrations">
+  <div class="container">
+    <h2 class="section-title">Illustrations</h2>
+    <p class="section-text">Hand-drawn work, sketches, and design studies.</p>
+
+    <div class="carousel">
+      <button class="carousel-btn prev" data-carousel="art" aria-label="Previous illustrations">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+
+      <div class="carousel-track" id="artTrack">
+        <article class="media-card"><img class="media-thumb" src="images/art-01.jpeg" alt="art 01"></article>
+        <article class="media-card"><img class="media-thumb" src="images/art-02.png" alt="art 02"></article>
+        <article class="media-card"><img class="media-thumb" src="images/art-03.jpeg" alt="art 03"></article>
+        <article class="media-card"><img class="media-thumb" src="images/art-04.jpeg" alt="art 04"></article>
+        <article class="media-card"><img class="media-thumb" src="images/art-05.png" alt="art 05"></article>
+        <article class="media-card"><img class="media-thumb" src="images/art-06.jpeg" alt="art 06"></article>
+        <article class="media-card"><img class="media-thumb" src="images/art-07.png" alt="art 07"></article>
+        <article class="media-card"><img class="media-thumb" src="images/art-08.png" alt="art 08"></article>
+        <article class="media-card"><img class="media-thumb" src="images/art-09.png" alt="art 09"></article>
+        <article class="media-card"><img class="media-thumb" src="images/art-10.jpeg" alt="art 10"></article>
+        <article class="media-card"><img class="media-thumb" src="images/art-11.jpeg" alt="art 11"></article>
+      </div>
+
+      <button class="carousel-btn next" data-carousel="art" aria-label="Next illustrations">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">
+    <i class="fa-solid fa-xmark"></i>
+  </button>
+  <div class="lightbox-content" id="lightboxContent"></div>
+</div>
+
+<!-- JS -->
+<script src="script.js"></script>
+
+<!-- Email reveal fallback -->
+<script>
+  const emailBtn = document.getElementById("emailBtn");
+  const emailReveal = document.getElementById("emailReveal");
+
+  if (emailBtn && emailReveal) {
+    emailBtn.addEventListener("click", () => {
+      emailReveal.style.display = "block";
+    });
+  }
+</script>
+
+</body>
+</html>
