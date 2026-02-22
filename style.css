@@ -59,8 +59,6 @@ header {
 }
 
 /* NAVIGATION */
-
-
 .menu-toggle {
     display: none; /* hidden on desktop */
     font-size: 1.5rem;
@@ -138,6 +136,22 @@ h2 {
     color: #c2c6d3;
     font-weight: 500;
 }
+/* Prevent the hero headline from re-wrapping while typing */
+.hero h2 {
+  line-height: 1.2;
+}
+
+/* Keep typed text on one line */
+.typing-text {
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.hero h2 {
+  min-height: 2.6em; /* tweak if needed */
+}
+
+
 
 p {
     font-size: 1.1rem;
@@ -458,8 +472,6 @@ p {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
 }
-
-
 
 @media (max-width: 992px){
     .hero{
@@ -1054,4 +1066,19 @@ section .container{
   to {
     transform: translateX(-50%);
   }
+}
+
+/* ===== Footer ===== */
+.site-footer {
+  text-align: center;
+  padding: 18px 0;
+  font-size: 0.85rem;
+  color: #9aa3b2;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  margin-top: 60px;
+  letter-spacing: 0.5px;
+}
+
+.site-footer p {
+  margin: 0;
 }
