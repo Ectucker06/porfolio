@@ -49,7 +49,7 @@
     </h2>
 
     <p>
-      Junior Computer Science student at NC A&amp;T passionate about building
+      Junior Computer Science student at NC A&amp;T passionate about creativity and growth. Building
       practical software, full-stack applications, and data-driven systems.
     </p>
 
@@ -373,9 +373,9 @@
       <div class="carousel-track" id="artTrack">
 
         <article class="media-card art-card">
-          <img class="media-thumb" src="images/art-01.jpeg" alt="Moonlit Study">
+          <img class="media-thumb" src="images/art-01.jpeg" alt="JOYBOY">
           <div class="art-overlay-preview">
-            <h3>Moonlit Study</h3>
+            <h3>JOYBOY</h3>
           </div>
           <div class="art-data"
                data-title="JOYBOY"
@@ -393,19 +393,19 @@
         </article>
 
         <article class="media-card art-card">
-          <img class="media-thumb" src="images/art-03.jpeg" alt="Portrait Practice">
+          <img class="media-thumb" src="images/art-03.jpeg" alt="Toriyama Tribute">
           <div class="art-overlay-preview">
-            <h3>Portrait Practice</h3>
+            <h3>Toriyama Tribute</h3>
           </div>
           <div class="art-data"
                data-title="Hero"
-               data-description="An Akira Toriyama Tribute"></div>
+               data-description="An Akira Toriyama tribute from when I got the news, sad day."></div>
         </article>
 
         <article class="media-card art-card">
-          <img class="media-thumb" src="images/art-04.jpeg" alt="Expression Sheet">
+          <img class="media-thumb" src="images/art-04.jpeg" alt="Black caricature">
           <div class="art-overlay-preview">
-            <h3>Expression Sheet</h3>
+            <h3>Black caricature</h3>
           </div>
           <div class="art-data"
                data-title="Auras"
@@ -423,9 +423,9 @@
         </article>
 
         <article class="media-card art-card">
-          <img class="media-thumb" src="images/art-06.jpg" alt="Figure Sketch">
+          <img class="media-thumb" src="images/art-06.jpg" alt="Justice">
           <div class="art-overlay-preview">
-            <h3>Figure Sketch</h3>
+            <h3>Justice</h3>
           </div>
           <div class="art-data"
                data-title="Justice"
@@ -433,9 +433,9 @@
         </article>
 
         <article class="media-card art-card">
-          <img class="media-thumb" src="images/art-07.png" alt="Stylized Portrait">
+          <img class="media-thumb" src="images/art-07.png" alt="The Drink">
           <div class="art-overlay-preview">
-            <h3>Stylized Portrait</h3>
+            <h3>The Drink</h3>
           </div>
           <div class="art-data"
                data-title="The Drink"
@@ -453,9 +453,9 @@
         </article>
 
         <article class="media-card art-card">
-          <img class="media-thumb" src="images/art-09.png" alt="Character Render">
+          <img class="media-thumb" src="images/art-09.png" alt="Goten">
           <div class="art-overlay-preview">
-            <h3>Character Render</h3>
+            <h3>Goten</h3>
           </div>
           <div class="art-data"
                data-title="Goten"
@@ -473,9 +473,9 @@
         </article>
 
         <article class="media-card art-card">
-          <img class="media-thumb" src="images/art-11.jpeg" alt="Design Exploration">
+          <img class="media-thumb" src="images/art-11.jpeg" alt="Nika">
           <div class="art-overlay-preview">
-            <h3>Design Exploration</h3>
+            <h3>Nika</h3>
           </div>
           <div class="art-data"
                data-title="Nika"
@@ -483,9 +483,9 @@
         </article>
 
         <article class="media-card art-card">
-          <img class="media-thumb" src="images/art-12.jpeg" alt="Final Character Study">
+          <img class="media-thumb" src="images/art-12.jpeg" alt="Aggies">
           <div class="art-overlay-preview">
-            <h3>Final Character Study</h3>
+            <h3>Aggies</h3>
           </div>
           <div class="art-data"
                data-title="Woof"
@@ -769,6 +769,44 @@
       renderLightboxItem(currentArtIndex);
     }
   });
+
+  // ===== Typing Text Effect =====
+const texts = ["Frontend Designer", "Data Scientist", "Software Developer", "Musician"];
+let textIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+
+const typingElement = document.querySelector(".typing-text");
+
+function type() {
+  if (!typingElement) return;
+
+  const currentText = texts[textIndex];
+
+  if (isDeleting) {
+    typingElement.textContent = currentText.substring(0, charIndex - 1);
+    charIndex--;
+  } else {
+    typingElement.textContent = currentText.substring(0, charIndex + 1);
+    charIndex++;
+  }
+
+  let delay = isDeleting ? 55 : 95;
+
+  if (!isDeleting && charIndex === currentText.length) {
+    isDeleting = true;
+    delay = 1200;
+  } else if (isDeleting && charIndex === 0) {
+    isDeleting = false;
+    textIndex = (textIndex + 1) % texts.length;
+    delay = 450;
+  }
+
+  setTimeout(type, delay);
+}
+
+// start typing
+setTimeout(type, 600);
 
   // ===== EMAIL REVEAL =====
   const emailBtn = document.getElementById("emailBtn");
