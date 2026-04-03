@@ -649,8 +649,10 @@ section .container{
   animation: scrollPhotos 36s linear infinite;
 }
 
-.photo-marquee:hover .photo-track {
-  animation-play-state: paused;
+@media (hover: hover) and (pointer: fine) {
+  .photo-marquee:hover .photo-track {
+    animation-play-state: paused;
+  }
 }
 
 .photo-chip {
@@ -666,6 +668,9 @@ section .container{
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   cursor: pointer;
   display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+  touch-action: manipulation;
 }
 
 .photo-chip:hover {
@@ -698,11 +703,6 @@ section .container{
   }
 }
 
-.community-lightbox-wrap .lightbox-media {
-  max-width: 92vw;
-  max-height: 88vh;
-  object-fit: contain;
-}
 
 /* ===== Carousel ===== */
 .carousel{

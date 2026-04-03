@@ -302,20 +302,17 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function closeLightbox() {
-    if (!lightbox || !lightboxContent) return;
+  if (!lightbox || !lightboxContent) return;
 
-    const v = lightboxContent.querySelector("video");
-    if (v) v.pause();
+  lightbox.classList.remove("open");
+  lightbox.setAttribute("aria-hidden", "true");
+  lightboxContent.innerHTML = "";
+  document.body.style.overflow = "";
 
-    lightbox.classList.remove("open");
-    lightbox.setAttribute("aria-hidden", "true");
-    lightboxContent.innerHTML = "";
-    document.body.style.overflow = "";
-    lightboxMode = null;
-
-    if (lightboxPrev) lightboxPrev.style.display = "grid";
-    if (lightboxNext) lightboxNext.style.display = "grid";
-  }
+  // restore arrows for art
+  if (lightboxPrev) lightboxPrev.style.display = "grid";
+  if (lightboxNext) lightboxNext.style.display = "grid";
+}
 
   function showNextArt(e) {
     if (e) {
@@ -339,18 +336,30 @@ document.addEventListener("DOMContentLoaded", () => {
     renderArtLightboxItem(currentArtIndex);
   }
 
-  // Art click
+    // Art click
   artItems.forEach((item, index) => {
     item.addEventListener("click", () => openArtLightbox(index));
   });
 
   // Community click
   document.querySelectorAll(".photo-chip").forEach((photo) => {
+    photo.setAttribute("draggable", "false");
+
+    photo.addEventListener("dragstart", (e) => {
+      e.preventDefault();
+    });
+
     photo.addEventListener("click", (e) => {
       e.preventDefault();
       e.stopPropagation();
       openCommunityLightbox(photo);
     });
+
+    photo.addEventListener("touchend", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      openCommunityLightbox(photo);
+    }, { passive: false });
   });
 
   // Music click
