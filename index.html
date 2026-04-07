@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio Website</title>
 
-  <!-- Font Awesome -->
-   <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+  <!-- Font Awesome / Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <!-- CSS -->
@@ -16,534 +16,644 @@
 
 <body>
 
-<header>
-  <a href="#home" class="logo">
-    <i class="fa-solid fa-code"></i>
-    <span class="logo-text">Elijah C. B. Tucker</span>
-  </a>
+  <!-- HEADER -->
+  <header>
+    <a href="#home" class="logo">
+      <i class="fa-solid fa-code"></i>
+      <span class="logo-text">Elijah C. B. Tucker</span>
+    </a>
 
-  <nav>
-    <div class="menu-toggle" aria-label="Open menu" role="button" tabindex="0">
-      <i class="fas fa-bars"></i>
-    </div>
-
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#volunteering">Volunteering</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><a href="#music">Music</a></li>
-      <li><a href="#illustrations">Illustrations</a></li>
-    </ul>
-  </nav>
-</header>
-
-<!-- HERO / HOME -->
-<section class="hero" id="home">
-  <div class="content">
-    <h2>
-      Computer Science Student |
-      <span class="typing-text">Aspiring Software Engineer</span>
-    </h2>
-
-    <p>
-      Junior Computer Science student at NC A&amp;T passionate about creativity and growth. Building
-      practical software, full-stack applications, and data-driven systems.
-    </p>
-
-    <div class="cta-buttons">
-      <a href="#projects" class="btn btn-primary">
-        <i class="fas fa-code"></i> View Projects
-      </a>
-
-      <a href="#contact" class="btn btn-secondary">
-        <i class="fas fa-paper-plane"></i> Contact Me
-      </a>
-
-      <a href="resume.pdf" class="btn btn-secondary" target="_blank">
-        <i class="fa-solid fa-file"></i> Resume
-      </a>
-    </div>
-
-    <div class="social-icons">
-      <a href="https://github.com/Ectucker06" target="_blank" rel="noreferrer">
-        <i class="fab fa-github"></i>
-      </a>
-
-      <a href="https://linkedin.com/in/elijah-tucker-0aa241290" target="_blank" rel="noreferrer">
-        <i class="fab fa-linkedin-in"></i>
-      </a>
-    </div>
-  </div>
-
-  <div class="profile-container">
-    <div class="border-outer"></div>
-    <div class="border-middle"></div>
-    <div class="border-inner"></div>
-    <div class="border-container"></div>
-
-    <div class="pulse-ring"></div>
-    <div class="pulse-ring"></div>
-    <div class="pulse-ring"></div>
-
-    <img src="images/profile.png" alt="Profile Picture" class="profile-img">
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section class="section reveal" id="about">
-  <div class="container">
-    <h2 class="section-title">About</h2>
-    <p class="section-text">
-      I’m a first-generation junior Computer Science student at NC A&amp;T with a growing focus on building full-stack applications and AI-augmented tools. I began college at 17 with limited programming experience, and through experimentation, networking, and hands-on projects, I’ve developed a strong interest in understanding how systems work end-to-end, how data moves through them, and how information is presented to users.
-    </p>
-  </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section class="section reveal" id="experience">
-  <div class="container">
-    <h2 class="section-title">Experience</h2>
-
-    <article class="wide-card">
-      <img src="images/epa.png" alt="EPA logo" class="wide-logo">
-      <div class="wide-content">
-        <h3 class="wide-title">Environmental Protection Agency (EPA) — Intern</h3>
-        <div class="wide-meta">Durham, NC | Spring 2023</div>
-        <ul class="wide-list">
-          <li>Assisted with data collection, analysis, and visualization to support environmental research and policy initiatives.</li>
-          <li>Organized datasets between 11 team members using Python (Pandas), improving workflow efficiency by ~9%.</li>
-          <li>Conducted literature reviews on regulations, sustainability practices, and compliance standards.</li>
-          <li>Prepared reports, presentations, and briefing materials for stakeholders.</li>
-        </ul>
+    <nav>
+      <div class="menu-toggle" aria-label="Open menu" role="button" tabindex="0">
+        <i class="fas fa-bars"></i>
       </div>
-    </article>
-  </div>
-</section>
 
-<!-- VOLUNTEERING -->
-<section class="section reveal" id="volunteering">
-  <div class="container">
-    <h2 class="section-title">Volunteering &amp; Networking</h2>
-    <p class="section-text">Building community and social skills; learning with other engineers.</p>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#volunteering">Volunteering</a></li>
+        <li><a href="#community">Community</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#music">Music</a></li>
+        <li><a href="#illustrations">Illustrations</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <article class="wide-card">
-      <img src="images/acm.png" alt="NCAT ACM logo" class="wide-logo">
-      <div class="wide-content">
-        <h3 class="wide-title">NC A&amp;T Association Of Computer Machinery — Member</h3>
-        <div class="wide-meta">Greensboro, NC | Ongoing</div>
+  <!-- HERO / HOME -->
+  <section class="hero" id="home">
+    <div class="content">
+      <h2>
+        Computer Science Student |
+        <span class="typing-text">Aspiring Software Engineer</span>
+      </h2>
 
-        <p class="wide-paragraph">
-          An active ACM member at NC A&amp;T, participating in technical workshops, coding challenges, hackathons,
-          and cybersecurity competitions. Through ACM, I developed technical and professional skills through resume reviews,
-          mock interviews, career prep events, and collaborative problem-solving with peers across computer science and engineering disciplines.
-        </p>
+      <p>
+        Junior Computer Science student at NC A&amp;T passionate about creativity and growth.
+        Building practical software, full-stack applications, and data-driven systems.
+      </p>
+
+      <div class="cta-buttons">
+        <a href="#projects" class="btn btn-primary">
+          <i class="fas fa-code"></i> View Projects
+        </a>
+
+        <a href="#contact" class="btn btn-secondary">
+          <i class="fas fa-paper-plane"></i> Contact Me
+        </a>
+
+        <a href="resume.pdf" class="btn btn-secondary" target="_blank">
+          <i class="fa-solid fa-file"></i> Resume
+        </a>
       </div>
-    </article>
-  </div>
-</section>
 
-<section class="section reveal" id="community">
-  <div class="container">
-    <h2 class="section-title">Community Highlights</h2>
-    <p class="section-text">
-      Moments from volunteering, student organizations, networking events, and community involvement.
-    </p>
+      <div class="social-icons">
+        <a href="https://github.com/Ectucker06" target="_blank" rel="noreferrer">
+          <i class="fab fa-github"></i>
+        </a>
 
-    <div class="photo-marquee">
-      <div class="photo-track">
-        <img src="images/community-01.jpg" alt="Community event photo" class="photo-chip">
-        <img src="images/community-02.jpg" alt="Student organization event" class="photo-chip">
-        <img src="images/community-03.jpg" alt="Networking or campus involvement" class="photo-chip photo-top">
-        <img src="images/community-04.jpg" alt="Volunteer or community activity" class="photo-chip photo-top">
-        <img src="images/community-05.jpg" alt="Campus community moment" class="photo-chip photo-top">
-        <img src="images/community-06.png" alt="Campus community moment" class="photo-chip photo-top">
-        <img src="images/community-07.png" alt="Campus community moment" class="photo-chip photo-top">
-
-        <!-- duplicate for smooth looping -->
-        <img src="images/community-01.jpg" alt="Community event photo" class="photo-chip">
-        <img src="images/community-02.jpg" alt="Student organization event" class="photo-chip">
-        <img src="images/community-03.jpg" alt="Networking or campus involvement" class="photo-chip photo-top">
-        <img src="images/community-04.jpg" alt="Volunteer or community activity" class="photo-chip photo-top">
-        <img src="images/community-05.jpg" alt="Campus community moment" class="photo-chip photo-top">
-        <img src="images/community-06.png" alt="Campus community moment" class="photo-chip photo-top">
-        <img src="images/community-07.png" alt="Campus community moment" class="photo-chip photo-top">
+        <a href="https://linkedin.com/in/elijah-tucker-0aa241290" target="_blank" rel="noreferrer">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- PROJECTS -->
-<section class="section reveal" id="projects">
-  <div class="container">
-    <h2 class="section-title">Projects</h2>
+    <div class="profile-container">
+      <div class="border-outer"></div>
+      <div class="border-middle"></div>
+      <div class="border-inner"></div>
+      <div class="border-container"></div>
+      <div class="pulse-ring"></div>
+      <div class="pulse-ring"></div>
+      <div class="pulse-ring"></div>
+      <img src="images/profile.png" alt="Profile Picture" class="profile-img">
+    </div>
+  </section>
 
-    <div class="projects-grid">
+  <!-- ABOUT -->
+  <section class="section reveal" id="about">
+    <div class="container">
+      <h2 class="section-title">About</h2>
+      <p class="section-text">
+        I’m a first-generation junior Computer Science student at NC A&amp;T with a growing focus on building full-stack applications and AI-augmented tools. I began college at 17 with limited programming experience, and through experimentation, networking, and hands-on projects, I’ve developed a strong interest in understanding how systems work end-to-end, how data moves through them, and how information is presented to users.
+      </p>
+    </div>
+  </section>
 
-      <article class="project-card">
-        <img src="images/medtronic.png" alt="AI Medical Translator preview" class="project-img">
-        <div class="project-body">
-          <h3>AI Medical Translator</h3>
-          <p>
-            Designed the UI/UX and debugged the AI chatbot pipeline, resulting in a stable,
-            visually polished demo that communicated clearly to judges and users.
-          </p>
-          <div class="project-links">
-            <a class="btn btn-secondary" href="https://github.com/ifwoctopi/2025-Fall-Hackathon" target="_blank" rel="noreferrer">GitHub</a>
+  <!-- EXPERIENCE -->
+  <section class="section reveal" id="experience">
+    <div class="container">
+      <h2 class="section-title">Experience</h2>
+
+      <div class="info-carousel">
+        <button class="carousel-btn prev" data-carousel="experience" aria-label="Previous experience">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <div class="info-track" id="experienceTrack">
+
+          <div class="info-slide">
+            <article class="wide-card">
+              <img src="images/epa.png" alt="EPA logo" class="wide-logo">
+              <div class="wide-content">
+                <h3 class="wide-title">Environmental Protection Agency (EPA) — Intern</h3>
+                <div class="wide-meta">Durham, NC | Spring 2023</div>
+                <ul class="wide-list">
+                  <li>Assisted with data collection, analysis, and visualization to support environmental research and policy initiatives.</li>
+                  <li>Organized datasets between 11 team members using Python (Pandas), improving workflow efficiency by ~9%.</li>
+                  <li>Conducted literature reviews on regulations, sustainability practices, and compliance standards.</li>
+                  <li>Prepared reports, presentations, and briefing materials for stakeholders.</li>
+                </ul>
+              </div>
+            </article>
           </div>
-        </div>
-      </article>
 
-      <article class="project-card">
-        <img src="images/relic.png" alt="Relic of Thragg preview" class="project-img">
-        <div class="project-body">
-          <h3>Relic of Thragg (Unity)</h3>
-          <p>
-            Produced sound design, 3D models, and visual transitions that brought the game to life,
-            supporting smooth integration with backend gameplay systems.
-          </p>
-          <div class="project-links">
-            <a class="btn btn-secondary" href="https://github.com/ifwoctopi/Alien-Escape" target="_blank" rel="noreferrer">GitHub</a>
+          <div class="info-slide">
+            <article class="wide-card">
+              <img src="images/cato.png" alt="Cato logo" class="wide-logo">
+              <div class="wide-content">
+                <h3 class="wide-title">Cato — Manager &amp; Keyholder</h3>
+                <div class="wide-meta">Durham, NC | May 2025 - August 2025</div>
+                <ul class="wide-list">
+                  <li>Managed opening and closing procedures as a trusted keyholder, ensuring store readiness, security, and smooth daily operations.</li>
+                  <li>Processed hundreds of dollars in customer transactions with accuracy while maintaining strong front-register service.</li>
+                  <li>Organized and redistributed inventory across the sales floor to improve merchandise presentation and overall store flow.</li>
+                  <li>Contributed to efficient store performance by supporting customer service, inventory handling, and operational responsibilities across shifts.</li>
+                </ul>
+              </div>
+            </article>
           </div>
-        </div>
-      </article>
 
-      <article class="project-card">
-        <img src="images/afropix.png" alt="AfroPix preview" class="project-img">
-        <div class="project-body">
-          <h3>AfroPix</h3>
-          <p>
-            Helped shape the project concept and theme, designed the Scarab identity, and guided direction
-            toward a focused Black history platform.
-          </p>
-          <div class="project-links">
-            <a class="btn btn-secondary" href="https://github.com/SuperiorPython/AfroPix" target="_blank" rel="noreferrer">GitHub</a>
+          <div class="info-slide">
+            <article class="wide-card">
+              <img src="images/chickfila.png" alt="Chick-fil-A logo" class="wide-logo">
+              <div class="wide-content">
+                <h3 class="wide-title">Chick-fil-A — Crew Member</h3>
+                <div class="wide-meta">Durham, NC | November 2021 - May 2022</div>
+                <ul class="wide-list">
+                  <li>Trained new team members on service procedures and operational standards, contributing to a ~7% improvement in team efficiency.</li>
+                  <li>Cross-trained across multiple roles (front counter, drive-thru, food preparation) to support team coordination and improve customer satisfaction by ~9%.</li>
+                  <li>Handled high-volume transactions, consistently processing $500+ per shift with accuracy and strong attention to detail.</li>
+                  <li>Maintained performance in fast-paced environments by balancing speed, communication, and service quality.</li>
+                </ul>
+              </div>
+            </article>
           </div>
+
         </div>
-      </article>
 
-      <article class="project-card">
-        <img src="images/prog.png" alt="Forecasting project preview" class="project-img">
-        <div class="project-body">
-          <h3>Forecasting Project</h3>
-          <p>
-            Built a forecasting workflow analyzing trends, seasonality, and uncertainty using preprocessing,
-            EDA, and evaluation of statistical + ML models.
-          </p>
-        </div>
-      </article>
-
-      <article class="project-card">
-        <img src="images/prog.png" alt="AI sound to sheet music preview" class="project-img">
-        <div class="project-body">
-          <h3>AI Sound-to-Sheet Music Generator</h3>
-          <p>
-            Built an AI-based music transcription concept that converts audio input into
-            piano sheet notation using signal processing, pitch detection, and structured output generation.
-          </p>
-        </div>
-      </article>
-
-      <article class="project-card">
-        <img src="images/prog.png" alt="Animated chatbot preview" class="project-img">
-        <div class="project-body">
-          <h3>Animated Chatbot with Hand-Drawn Expressions</h3>
-          <p>
-            Designed an interactive chatbot experience that pairs conversational AI with
-            hand-drawn facial animation, allowing visual expression changes during text or voice responses.
-          </p>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section class="section reveal" id="skills">
-  <div class="container">
-    <h2 class="section-title">Skills</h2>
-    <p class="section-text">Technologies, tools, and problem-solving strengths</p>
-
-    <div class="skills-marquee">
-      <div class="skills-track">
-        <span class="chip">JavaScript</span>
-        <span class="chip">Python</span>
-        <span class="chip">Java</span>
-        <span class="chip">C++</span>
-        <span class="chip">MySQL</span>
-        <span class="chip">Git &amp; GitHub</span>
-        <span class="chip">Supabase</span>
-        <span class="chip">APIs</span>
-        <span class="chip">Unity</span>
-        <span class="chip">Adobe Creative Suite</span>
-        <span class="chip">Troubleshooting</span>
-        <span class="chip">Debugging</span>
-        <span class="chip">Data Analysis</span>
-        <span class="chip">UI/UX Design</span>
-
-        <span class="chip">JavaScript</span>
-        <span class="chip">Python</span>
-        <span class="chip">Java</span>
-        <span class="chip">C++</span>
-        <span class="chip">MySQL</span>
-        <span class="chip">Git &amp; GitHub</span>
-        <span class="chip">Supabase</span>
-        <span class="chip">APIs</span>
-        <span class="chip">Unity</span>
-        <span class="chip">Adobe Creative Suite</span>
-        <span class="chip">Troubleshooting</span>
-        <span class="chip">Debugging</span>
-        <span class="chip">Data Analysis</span>
-        <span class="chip">UI/UX Design</span>
+        <button class="carousel-btn next" data-carousel="experience" aria-label="Next experience">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
       </div>
+
+      <p class="swipe-hint">Swipe on mobile</p>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- CONTACT -->
-<section class="section reveal" id="contact">
-  <div class="container">
-    <h2 class="section-title">Contact</h2>
-    <p class="section-text">Want to connect? Email me or reach out on LinkedIn.</p>
+  <!-- VOLUNTEERING -->
+  <section class="section reveal" id="volunteering">
+    <div class="container">
+      <h2 class="section-title">Volunteering &amp; Networking</h2>
+      <p class="section-text">Building community and social skills; learning with other engineers.</p>
 
-    <div class="contact-actions">
-      <a class="btn btn-primary" id="emailBtn"
-         href="mailto:AuroraMail942@gmail.com?subject=Portfolio%20Contact">
-        <i class="fa-solid fa-envelope"></i> Email Me
-      </a>
+      <div class="info-carousel">
+        <button class="carousel-btn prev" data-carousel="volunteering" aria-label="Previous volunteering item">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
 
-      <a class="btn btn-secondary"
-         href="https://linkedin.com/in/elijah-tucker-0aa241290"
-         target="_blank" rel="noreferrer">
-        LinkedIn
-      </a>
+        <div class="info-track" id="volunteeringTrack">
+
+          <div class="info-slide">
+            <article class="wide-card">
+              <img src="images/acm.png" alt="NCAT ACM logo" class="wide-logo">
+              <div class="wide-content">
+                <h3 class="wide-title">NC A&amp;T Association Of Computer Machinery — Member</h3>
+                <div class="wide-meta">Greensboro, NC | Ongoing</div>
+                <p class="wide-paragraph">
+                  An active ACM member at NC A&amp;T, participating in technical workshops, coding challenges, hackathons, and cybersecurity competitions. Through ACM, I developed technical and professional skills through resume reviews, mock interviews, career prep events, and collaborative problem-solving with peers across computer science and engineering disciplines.
+                </p>
+              </div>
+            </article>
+          </div>
+
+          <div class="info-slide">
+            <article class="wide-card">
+              <img src="images/jazz.png" alt="Jazz Band" class="wide-logo">
+              <div class="wide-content">
+                <h3 class="wide-title">Jazz Band</h3>
+                <div class="wide-meta">Performance, Ensemble Collaboration &amp; Musical Discipline</div>
+                <p class="wide-paragraph">
+                  Performed as part of the NC A&amp;T jazz ensemble, developing discipline, timing, active listening, and collaborative performance skills through rehearsals, live concerts, and group preparation. Strengthened adaptability and teamwork by coordinating with other musicians in high-visibility performances and ensemble settings.
+                </p>
+              </div>
+            </article>
+          </div>
+
+          <div class="info-slide">
+            <article class="wide-card">
+              <img src="images/community-service.png" alt="Community Service" class="wide-logo">
+              <div class="wide-content">
+                <h3 class="wide-title">Community Service</h3>
+                <div class="wide-meta">Campus &amp; Outreach</div>
+                <p class="wide-paragraph">
+                  Participated in volunteer and outreach efforts that strengthened community involvement and communication.
+                </p>
+              </div>
+            </article>
+          </div>
+
+        </div>
+
+        <button class="carousel-btn next" data-carousel="volunteering" aria-label="Next volunteering item">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+
+      <p class="swipe-hint">Swipe on mobile</p>
     </div>
+  </section>
 
-    <p id="emailReveal" style="margin-top:14px; color:#c2c6d3; display:none;">
-      Email:
-      <a href="mailto:AuroraMail942@gmail.com" style="color:inherit; text-decoration:underline;">
-        AuroraMail942@gmail.com
-      </a>
-    </p>
-  </div>
-</section>
+  <!-- COMMUNITY -->
+  <section class="section reveal" id="community">
+    <div class="container">
+      <h2 class="section-title">Community Highlights</h2>
+      <p class="section-text">
+        Moments from volunteering, student organizations, networking events, and community involvement.
+      </p>
 
-<!-- MUSIC -->
-<section class="section reveal" id="music">
-  <div class="container">
-    <h2 class="section-title">Music</h2>
-    <p class="section-text">Piano performance clips, practice runs, and favorite moments.</p>
+      <div class="community-carousel">
+        <button class="carousel-btn prev" data-carousel="community" aria-label="Previous community photo">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
 
-    <div class="carousel">
-      <button class="carousel-btn prev" data-carousel="music" aria-label="Previous music">
-        <i class="fa-solid fa-chevron-left"></i>
-      </button>
+        <div class="community-track" id="communityTrack">
 
-      <div class="carousel-track" id="musicTrack">
+          <article class="community-card">
+            <img src="images/community-01.jpg" alt="Performance" class="community-thumb">
+            <div class="community-read-badge">Tap to read</div>
+            <div class="community-overlay-preview"><h3>May Concert</h3></div>
+            <div class="community-data"
+                 data-title="Performance"
+                 data-description="Photo of me on stage after performing A bientot."></div>
+          </article>
 
-        <article class="media-card">
-          <video class="media-thumb" controls preload="metadata">
-            <source src="piano-01.mp4" type="video/mp4">
-          </video>
-          <div class="media-meta">
-            <h3>Personal Cover</h3>
-            <p>Rebecca Sugar's "Love Like You".</p>
+          <article class="community-card">
+            <img src="images/community-02.jpg" alt="Career fair interview" class="community-thumb">
+            <div class="community-read-badge">Tap to read</div>
+            <div class="community-overlay-preview"><h3>Career Fair Interview</h3></div>
+            <div class="community-data"
+                 data-title="Career fair interview"
+                 data-description="A moment from involvement in campus organizations and collaborative community building."></div>
+          </article>
+
+          <article class="community-card">
+            <img src="images/community-03.jpg" alt="Afropix UNC" class="community-thumb">
+            <div class="community-read-badge">Tap to read</div>
+            <div class="community-overlay-preview"><h3>Afropix UNC</h3></div>
+            <div class="community-data"
+                 data-title="Afropix UNC"
+                 data-description="Connecting with peers at UNC Chapel hill after the Black History Month hackathon."></div>
+          </article>
+
+          <article class="community-card">
+            <img src="images/community-04.jpg" alt="Dianne Reeves" class="community-thumb">
+            <div class="community-read-badge">Tap to read</div>
+            <div class="community-overlay-preview"><h3>Dianne Reeves</h3></div>
+            <div class="community-data"
+                 data-title="Diane Reeves"
+                 data-description="Meeting with famous jazz singer Dianne Reeves after playing piano for her at NCAT."></div>
+          </article>
+
+          <article class="community-card">
+            <img src="images/community-05.jpg" alt="EPA Graduation" class="community-thumb">
+            <div class="community-read-badge">Tap to read</div>
+            <div class="community-overlay-preview"><h3>EPA Graduation</h3></div>
+            <div class="community-data"
+                 data-title="EPA Graduation"
+                 data-description="A snapshot of our EPA certification retreival."></div>
+          </article>
+
+          <article class="community-card">
+            <img src="images/community-06.png" alt="Charles Toliver Concert" class="community-thumb">
+            <div class="community-read-badge">Tap to read</div>
+            <div class="community-overlay-preview"><h3>Charles Toliver Concert</h3></div>
+            <div class="community-data"
+                 data-title="Charles Toliver Concert"
+                 data-description="A photo of the jazz band preparing for our end of year concert with Charles Toliver"></div>
+          </article>
+
+          <article class="community-card">
+            <img src="images/community-07.png" alt="Jazz Combo Challenge" class="community-thumb">
+            <div class="community-read-badge">Tap to read</div>
+            <div class="community-overlay-preview"><h3>Jazz Combo Challenge</h3></div>
+            <div class="community-data"
+                 data-title="Jazz Combo Challenge"
+                 data-description="A portrait of the Jazz ensemble for the University combo challenge."></div>
+          </article>
+
+        </div>
+
+        <button class="carousel-btn next" data-carousel="community" aria-label="Next community photo">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section reveal" id="projects">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+
+      <div class="projects-grid">
+
+        <article class="project-card">
+          <img src="images/medtronic.png" alt="AI Medical Translator preview" class="project-img">
+          <div class="project-body">
+            <h3>AI Medical Translator</h3>
+            <p>
+              Designed the UI/UX and debugged the AI chatbot pipeline, resulting in a stable,
+              visually polished demo that communicated clearly to judges and users.
+            </p>
+            <div class="project-links">
+              <a class="btn btn-secondary" href="https://github.com/ifwoctopi/2025-Fall-Hackathon" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
           </div>
         </article>
 
-        <article class="media-card">
-          <video class="media-thumb" controls preload="metadata">
-            <source src="piano-02.mp4" type="video/mp4">
-          </video>
-          <div class="media-meta">
-            <h3>Personal Cover</h3>
-            <p>Akuma No Ko.</p>
+        <article class="project-card">
+          <img src="images/relic.png" alt="Relic of Thragg preview" class="project-img">
+          <div class="project-body">
+            <h3>Relic of Thragg (Unity)</h3>
+            <p>
+              Produced sound design, 3D models, and visual transitions that brought the game to life,
+              supporting smooth integration with backend gameplay systems.
+            </p>
+            <div class="project-links">
+              <a class="btn btn-secondary" href="https://github.com/ifwoctopi/Alien-Escape" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
           </div>
         </article>
 
-        <article class="media-card">
-          <video class="media-thumb" controls preload="metadata">
-            <source src="piano-03.mp4" type="video/mp4">
-          </video>
-          <div class="media-meta">
-            <h3>Jazz Ensemble</h3>
-            <p>Black Jack.</p>
+        <article class="project-card">
+          <img src="images/afropix.png" alt="AfroPix preview" class="project-img">
+          <div class="project-body">
+            <h3>AfroPix</h3>
+            <p>
+              Helped shape the project concept and theme, designed the Scarab identity, and guided direction
+              toward a focused Black history platform.
+            </p>
+            <div class="project-links">
+              <a class="btn btn-secondary" href="https://github.com/SuperiorPython/AfroPix" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <img src="images/prog.png" alt="Forecasting project preview" class="project-img">
+          <div class="project-body">
+            <h3>Forecasting Project</h3>
+            <p>
+              Built a forecasting workflow analyzing trends, seasonality, and uncertainty using preprocessing,
+              EDA, and evaluation of statistical + ML models.
+            </p>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <img src="images/prog.png" alt="AI sound to sheet music preview" class="project-img">
+          <div class="project-body">
+            <h3>AI Sound-to-Sheet Music Generator</h3>
+            <p>
+              Built an AI-based music transcription concept that converts audio input into
+              piano sheet notation using signal processing, pitch detection, and structured output generation.
+            </p>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <img src="images/prog.png" alt="Animated chatbot preview" class="project-img">
+          <div class="project-body">
+            <h3>Animated Chatbot with Hand-Drawn Expressions</h3>
+            <p>
+              Designed an interactive chatbot experience that pairs conversational AI with
+              hand-drawn facial animation, allowing visual expression changes during text or voice responses.
+            </p>
           </div>
         </article>
 
       </div>
-
-      <button class="carousel-btn next" data-carousel="music" aria-label="Next music">
-        <i class="fa-solid fa-chevron-right"></i>
-      </button>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ILLUSTRATIONS -->
-<section class="section reveal" id="illustrations">
-  <div class="container">
-    <h2 class="section-title">Illustrations</h2>
-    <p class="section-text">Hand-drawn work, sketches, and design studies.</p>
+  <!-- SKILLS -->
+  <section class="section reveal" id="skills">
+    <div class="container">
+      <h2 class="section-title">Skills</h2>
+      <p class="section-text">Technologies, tools, and problem-solving strengths</p>
 
-    <div class="carousel">
-      <button class="carousel-btn prev" data-carousel="art" aria-label="Previous illustrations">
-        <i class="fa-solid fa-chevron-left"></i>
-      </button>
+      <div class="skills-marquee">
+        <div class="skills-track">
+          <span class="chip">JavaScript</span>
+          <span class="chip">Python</span>
+          <span class="chip">Java</span>
+          <span class="chip">C++</span>
+          <span class="chip">MySQL</span>
+          <span class="chip">Git &amp; GitHub</span>
+          <span class="chip">Supabase</span>
+          <span class="chip">APIs</span>
+          <span class="chip">Unity</span>
+          <span class="chip">Adobe Creative Suite</span>
+          <span class="chip">Troubleshooting</span>
+          <span class="chip">Debugging</span>
+          <span class="chip">Data Analysis</span>
+          <span class="chip">UI/UX Design</span>
 
-      <div class="carousel-track" id="artTrack">
+          <span class="chip">JavaScript</span>
+          <span class="chip">Python</span>
+          <span class="chip">Java</span>
+          <span class="chip">C++</span>
+          <span class="chip">MySQL</span>
+          <span class="chip">Git &amp; GitHub</span>
+          <span class="chip">Supabase</span>
+          <span class="chip">APIs</span>
+          <span class="chip">Unity</span>
+          <span class="chip">Adobe Creative Suite</span>
+          <span class="chip">Troubleshooting</span>
+          <span class="chip">Debugging</span>
+          <span class="chip">Data Analysis</span>
+          <span class="chip">UI/UX Design</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- 1 -->
-        <article class="media-card art-card">
-          <img class="media-thumb" src="images/art-01.jpeg" alt="JOYBOY">
-          <div class="art-overlay-preview"><h3>JOYBOY</h3></div>
-          <div class="art-data"
-               data-title="JOYBOY"
-               data-description="A sketch of Luffy focused on soft lighting, IbisPaint."></div>
-        </article>
+  <!-- CONTACT -->
+  <section class="section reveal" id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <p class="section-text">Want to connect? Email me or reach out on LinkedIn.</p>
 
-        <!-- 2 -->
-        <article class="media-card art-card">
-          <img class="media-thumb" src="images/art-02.png" alt="Character Concept">
-          <div class="art-overlay-preview"><h3>Character Concept</h3></div>
-          <div class="art-data"
-               data-title="Character Concept"
-               data-description="Early character design of me and my dream abilities."></div>
-        </article>
+      <div class="contact-actions">
+        <a class="btn btn-primary" id="emailBtn" href="mailto:AuroraMail942@gmail.com?subject=Portfolio%20Contact">
+          <i class="fa-solid fa-envelope"></i> Email Me
+        </a>
 
-        <!-- 3 (REPLACED WITH ART 13) -->
-        <article class="media-card art-card">
-          <img class="media-thumb" src="images/art-13.jpg" alt="Ifrit">
-          <div class="art-overlay-preview"><h3>Ifrit</h3></div>
-          <div class="art-data"
-               data-title="Ifrit"
-               data-description="Character work for my favorite character of Echira Oda."></div>
-        </article>
-
-        <!-- 4 -->
-        <article class="media-card art-card">
-          <img class="media-thumb" src="images/art-04.jpeg" alt="Black caricature">
-          <div class="art-overlay-preview"><h3>Black caricature</h3></div>
-          <div class="art-data"
-               data-title="Auras"
-               data-description="A personal sketch of my freshman year roommate"></div>
-        </article>
-
-        <!-- 5 (NOW ART 3) -->
-        <article class="media-card art-card">
-          <img class="media-thumb" src="images/art-03.jpeg" alt="Toriyama Tribute">
-          <div class="art-overlay-preview"><h3>Toriyama Tribute</h3></div>
-          <div class="art-data"
-               data-title="Hero"
-               data-description="An Akira Toriyama tribute from when I got the news."></div>
-        </article>
-
-        <!-- 6 -->
-        <article class="media-card art-card">
-          <img class="media-thumb" src="images/art-06.jpg" alt="Justice">
-          <div class="art-overlay-preview"><h3>Justice</h3></div>
-          <div class="art-data"
-               data-title="Justice"
-               data-description="Portrait for Afropix UNC 2026, referencing the Scottsboro Boys."></div>
-        </article>
-
-        <!-- 7 -->
-        <article class="media-card art-card">
-          <img class="media-thumb" src="images/art-07.png" alt="The Drink">
-          <div class="art-overlay-preview"><h3>The Drink</h3></div>
-          <div class="art-data"
-               data-title="The Drink"
-               data-description="A sketch of Trunks Briefs"></div>
-        </article>
-
-        <!-- 8 -->
-        <article class="media-card art-card">
-          <img class="media-thumb" src="images/art-08.png" alt="Color Study">
-          <div class="art-overlay-preview"><h3>Color Study</h3></div>
-          <div class="art-data"
-               data-title="Love and Lust"
-               data-description="Personal Sketch"></div>
-        </article>
-
-        <!-- 9 -->
-        <article class="media-card art-card">
-          <img class="media-thumb" src="images/art-09.png" alt="Goten">
-          <div class="art-overlay-preview"><h3>Goten</h3></div>
-          <div class="art-data"
-               data-title="Goten"
-               data-description="Adaptation of a Dragon Ball Super Hero manga panel."></div>
-        </article>
-
-        <!-- 10 -->
-        <article class="media-card art-card">
-          <img class="media-thumb" src="images/art-10.jpeg" alt="Ink and Shade Study">
-          <div class="art-overlay-preview"><h3>Ink and Shade Study</h3></div>
-          <div class="art-data"
-               data-title="Ink and Shade Study"
-               data-description="A sketch of a soon-to-be large portrait"></div>
-        </article>
-
-        <!-- 11 -->
-        <article class="media-card art-card">
-          <img class="media-thumb" src="images/art-11.jpeg" alt="Nika">
-          <div class="art-overlay-preview"><h3>Nika</h3></div>
-          <div class="art-data"
-               data-title="Nika"
-               data-description="Hand-drawn interpretation of Gear 5 panels"></div>
-        </article>
-
-        <!-- 12 -->
-        <article class="media-card art-card">
-          <img class="media-thumb" src="images/art-12.jpeg" alt="Aggies">
-          <div class="art-overlay-preview"><h3>Aggies</h3></div>
-          <div class="art-data"
-               data-title="Woof"
-               data-description="Poster for an NCAT event using official colors"></div>
-        </article>
-
-        <!-- LAST (NOW ART 5) -->
-        <article class="media-card art-card">
-          <img class="media-thumb" src="images/art-05.png" alt="Rendered Concept">
-          <div class="art-overlay-preview"><h3>Rendered Concept</h3></div>
-          <div class="art-data"
-               data-title="Inward"
-               data-description="My personal artstyle and a rendered self-portrait"></div>
-        </article>
-
+        <a class="btn btn-secondary" href="https://linkedin.com/in/elijah-tucker-0aa241290" target="_blank" rel="noreferrer">
+          LinkedIn
+        </a>
       </div>
 
-      <button class="carousel-btn next" data-carousel="art" aria-label="Next illustrations">
-        <i class="fa-solid fa-chevron-right"></i>
-      </button>
+      <p id="emailReveal" style="margin-top:14px; color:#c2c6d3; display:none;">
+        Email:
+        <a href="mailto:AuroraMail942@gmail.com" style="color:inherit; text-decoration:underline;">
+          AuroraMail942@gmail.com
+        </a>
+      </p>
     </div>
+  </section>
+
+  <!-- MUSIC -->
+  <section class="section reveal" id="music">
+    <div class="container">
+      <h2 class="section-title">Music</h2>
+      <p class="section-text">Piano performance clips, practice runs, and favorite moments.</p>
+
+      <div class="carousel">
+        <button class="carousel-btn prev" data-carousel="music" aria-label="Previous music">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <div class="carousel-track" id="musicTrack">
+
+          <article class="media-card">
+            <video class="media-thumb" controls preload="metadata">
+              <source src="piano-01.mp4" type="video/mp4">
+            </video>
+            <div class="media-meta">
+              <h3>Personal Cover</h3>
+              <p>Rebecca Sugar's "Love Like You".</p>
+            </div>
+          </article>
+
+          <article class="media-card">
+            <video class="media-thumb" controls preload="metadata">
+              <source src="piano-02.mp4" type="video/mp4">
+            </video>
+            <div class="media-meta">
+              <h3>Personal Cover</h3>
+              <p>Akuma No Ko.</p>
+            </div>
+          </article>
+
+          <article class="media-card">
+            <video class="media-thumb" controls preload="metadata">
+              <source src="piano-03.mp4" type="video/mp4">
+            </video>
+            <div class="media-meta">
+              <h3>Jazz Ensemble</h3>
+              <p>Black Jack.</p>
+            </div>
+          </article>
+
+        </div>
+
+        <button class="carousel-btn next" data-carousel="music" aria-label="Next music">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ILLUSTRATIONS -->
+  <section class="section reveal" id="illustrations">
+    <div class="container">
+      <h2 class="section-title">Illustrations</h2>
+      <p class="section-text">Hand-drawn work, sketches, and design studies.</p>
+
+      <div class="carousel">
+        <button class="carousel-btn prev" data-carousel="art" aria-label="Previous illustrations">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <div class="carousel-track" id="artTrack">
+
+          <article class="media-card art-card">
+            <img class="media-thumb" src="images/art-01.jpeg" alt="JOYBOY">
+            <div class="art-overlay-preview"><h3>JOYBOY</h3></div>
+            <div class="art-data" data-title="JOYBOY" data-description="A sketch of Luffy focused on soft lighting, IbisPaint."></div>
+          </article>
+
+          <article class="media-card art-card">
+            <img class="media-thumb" src="images/art-02.png" alt="Character Concept">
+            <div class="art-overlay-preview"><h3>Character Concept</h3></div>
+            <div class="art-data" data-title="Character Concept" data-description="Early character design of me and my dream abilities."></div>
+          </article>
+
+          <article class="media-card art-card">
+            <img class="media-thumb" src="images/art-13.jpg" alt="Ifrit">
+            <div class="art-overlay-preview"><h3>Ifrit</h3></div>
+            <div class="art-data" data-title="Ifrit" data-description="Character work for my favorite character of Echira Oda."></div>
+          </article>
+
+          <article class="media-card art-card">
+            <img class="media-thumb" src="images/art-04.jpeg" alt="Black caricature">
+            <div class="art-overlay-preview"><h3>Black caricature</h3></div>
+            <div class="art-data" data-title="Auras" data-description="A personal sketch of my freshman year roommate"></div>
+          </article>
+
+          <article class="media-card art-card">
+            <img class="media-thumb" src="images/art-03.jpeg" alt="Toriyama Tribute">
+            <div class="art-overlay-preview"><h3>Toriyama Tribute</h3></div>
+            <div class="art-data" data-title="Hero" data-description="An Akira Toriyama tribute from when I got the news."></div>
+          </article>
+
+          <article class="media-card art-card">
+            <img class="media-thumb" src="images/art-06.jpg" alt="Justice">
+            <div class="art-overlay-preview"><h3>Justice</h3></div>
+            <div class="art-data" data-title="Justice" data-description="Portrait for Afropix UNC 2026, referencing the Scottsboro Boys."></div>
+          </article>
+
+          <article class="media-card art-card">
+            <img class="media-thumb" src="images/art-07.png" alt="The Drink">
+            <div class="art-overlay-preview"><h3>The Drink</h3></div>
+            <div class="art-data" data-title="The Drink" data-description="A sketch of Trunks Briefs"></div>
+          </article>
+
+          <article class="media-card art-card">
+            <img class="media-thumb" src="images/art-08.png" alt="Color Study">
+            <div class="art-overlay-preview"><h3>Color Study</h3></div>
+            <div class="art-data" data-title="Love and Lust" data-description="Personal Sketch"></div>
+          </article>
+
+          <article class="media-card art-card">
+            <img class="media-thumb" src="images/art-09.png" alt="Goten">
+            <div class="art-overlay-preview"><h3>Goten</h3></div>
+            <div class="art-data" data-title="Goten" data-description="Adaptation of a Dragon Ball Super Hero manga panel."></div>
+          </article>
+
+          <article class="media-card art-card">
+            <img class="media-thumb" src="images/art-10.jpeg" alt="Ink and Shade Study">
+            <div class="art-overlay-preview"><h3>Ink and Shade Study</h3></div>
+            <div class="art-data" data-title="Ink and Shade Study" data-description="A sketch of a soon-to-be large portrait"></div>
+          </article>
+
+          <article class="media-card art-card">
+            <img class="media-thumb" src="images/art-11.jpeg" alt="Nika">
+            <div class="art-overlay-preview"><h3>Nika</h3></div>
+            <div class="art-data" data-title="Nika" data-description="Hand-drawn interpretation of Gear 5 panels"></div>
+          </article>
+
+          <article class="media-card art-card">
+            <img class="media-thumb" src="images/art-12.jpeg" alt="Aggies">
+            <div class="art-overlay-preview"><h3>Aggies</h3></div>
+            <div class="art-data" data-title="Woof" data-description="Poster for an NCAT event using official colors"></div>
+          </article>
+
+          <article class="media-card art-card">
+            <img class="media-thumb" src="images/art-05.png" alt="Rendered Concept">
+            <div class="art-overlay-preview"><h3>Rendered Concept</h3></div>
+            <div class="art-data" data-title="Inward" data-description="My personal artstyle and a rendered self-portrait"></div>
+          </article>
+
+        </div>
+
+        <button class="carousel-btn next" data-carousel="art" aria-label="Next illustrations">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous piece">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+
+    <div class="lightbox-content" id="lightboxContent"></div>
+
+    <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next piece">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
   </div>
-</section>
 
-<!-- Lightbox -->
-<div class="lightbox" id="lightbox" aria-hidden="true">
-  <button class="lightbox-close" id="lightboxClose" aria-label="Close">
-    <i class="fa-solid fa-xmark"></i>
-  </button>
+  <!-- SCRIPT -->
+  <script src="script.js?v=8"></script>
 
-  <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous piece">
-    <i class="fa-solid fa-chevron-left"></i>
-  </button>
-
-  <div class="lightbox-content" id="lightboxContent"></div>
-
-  <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next piece">
-    <i class="fa-solid fa-chevron-right"></i>
-  </button>
-</div>
-<script src="script.js?v=7"></script>
-
-<footer class="site-footer">
-  <p>© 2026 — Coded by Elijah Tucker</p>
-</footer>
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p>© 2026 — Coded by Elijah Tucker</p>
+  </footer>
 
 </body>
 </html>
