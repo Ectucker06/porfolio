@@ -143,6 +143,12 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ===== Initialize Carousels =====
+    initCarousel(
+    "#communityTrack",
+    '.carousel-btn.prev[data-carousel="community"]',
+    '.carousel-btn.next[data-carousel="community"]'
+  );
+  
   initCarousel(
     "#musicTrack",
     '.carousel-btn.prev[data-carousel="music"]',
