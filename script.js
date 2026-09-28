@@ -1,9 +1,17 @@
 // ===== MAIN SCRIPT =====
-document.addEventListener("DOMContentLoaded", () => {
-  const $ = (s, p = document) => p.querySelector(s);
-  const $$ = (s, p = document) => [...p.querySelectorAll(s)];
 
-  // ===== Mobile Menu Toggle =====
+document.addEventListener("DOMContentLoaded", () => {
+  const $ = (selector, parent = document) =>
+    parent.querySelector(selector);
+
+  const $$ = (selector, parent = document) =>
+    [...parent.querySelectorAll(selector)];
+
+
+  // =========================================================
+  // MOBILE MENU
+  // =========================================================
+
   const menuToggle = $(".menu-toggle");
   const navMenu = $("nav ul");
   const toggleIcon = menuToggle ? $("i", menuToggle) : null;
@@ -11,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (menuToggle && navMenu && toggleIcon) {
     menuToggle.addEventListener("click", () => {
       navMenu.classList.toggle("active");
+
       toggleIcon.classList.toggle("fa-bars");
       toggleIcon.classList.toggle("fa-times");
     });
@@ -18,148 +27,286 @@ document.addEventListener("DOMContentLoaded", () => {
     $$("nav a").forEach((link) => {
       link.addEventListener("click", () => {
         navMenu.classList.remove("active");
+
         toggleIcon.classList.add("fa-bars");
         toggleIcon.classList.remove("fa-times");
       });
     });
   }
 
-  // ===== Typing Text Effect =====
-  const texts = ["Frontend Designer", "Data Scientist", "Software Developer", "Musician"];
+
+  // =========================================================
+  // TYPING EFFECT
+  // =========================================================
+
+  const texts = [
+    "Software Engineer",
+    "Full-Stack Developer",
+    "AI & API Developer",
+    "Technology Problem Solver"
+  ];
+
   const typingElement = $(".typing-text");
+
   let textIndex = 0;
   let charIndex = 0;
   let isDeleting = false;
 
-  function type() {
+  function typeText() {
     if (!typingElement) return;
 
-    const current = texts[textIndex];
+    const currentText = texts[textIndex];
 
     if (isDeleting) {
-      typingElement.textContent = current.substring(0, charIndex--);
+      charIndex--;
+      typingElement.textContent =
+        currentText.substring(0, charIndex);
     } else {
-      typingElement.textContent = current.substring(0, ++charIndex);
+      charIndex++;
+      typingElement.textContent =
+        currentText.substring(0, charIndex);
     }
 
     let delay = isDeleting ? 55 : 95;
 
-    if (!isDeleting && charIndex === current.length) {
+    if (!isDeleting && charIndex === currentText.length) {
       isDeleting = true;
       delay = 1200;
     } else if (isDeleting && charIndex === 0) {
       isDeleting = false;
-      textIndex = (textIndex + 1) % texts.length;
+
+      textIndex =
+        (textIndex + 1) % texts.length;
+
       delay = 450;
     }
 
-    setTimeout(type, delay);
+    setTimeout(typeText, delay);
   }
 
-  setTimeout(type, 600);
+  if (typingElement) {
+    setTimeout(typeText, 600);
+  }
 
-  // ===== Smooth Scroll for Anchor Links =====
+
+  // =========================================================
+  // SMOOTH SCROLL
+  // =========================================================
+
   $$('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", (e) => {
-      const targetID = anchor.getAttribute("href");
-      const target = targetID ? $(targetID) : null;
-      if (!target || targetID === "#") return;
+    anchor.addEventListener("click", (event) => {
+      const targetID =
+        anchor.getAttribute("href");
 
-      e.preventDefault();
+      if (!targetID || targetID === "#") {
+        return;
+      }
+
+      const target =
+        $(targetID);
+
+      if (!target) {
+        return;
+      }
+
+      event.preventDefault();
+
       window.scrollTo({
         top: target.offsetTop - 80,
-        behavior: "smooth",
+        behavior: "smooth"
       });
     });
   });
 
-  // ===== Reveal on Scroll =====
-  const revealEls = $$(".reveal");
 
-  if (revealEls.length) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          entry.target.classList.toggle("show", entry.isIntersecting);
-        });
-      },
-      {
-        threshold: 0.18,
-        rootMargin: "0px 0px -12% 0px",
-      }
-    );
+  // =========================================================
+  // REVEAL ON SCROLL
+  // =========================================================
 
-    revealEls.forEach((el) => observer.observe(el));
+  const revealElements =
+    $$(".reveal");
+
+  if (
+    revealElements.length &&
+    "IntersectionObserver" in window
+  ) {
+    const observer =
+      new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            entry.target.classList.toggle(
+              "show",
+              entry.isIntersecting
+            );
+          });
+        },
+        {
+          threshold: 0.18,
+          rootMargin:
+            "0px 0px -12% 0px"
+        }
+      );
+
+    revealElements.forEach((element) => {
+      observer.observe(element);
+    });
+  } else {
+    revealElements.forEach((element) => {
+      element.classList.add("show");
+    });
   }
 
-  // ===== Carousel Helper =====
-  function initCarousel(trackSelector, prevSelector, nextSelector, cardSelector = ".media-card, .info-slide, .community-card") {
-    const track = $(trackSelector);
-    const prevBtn = $(prevSelector);
-    const nextBtn = $(nextSelector);
-    if (!track || !prevBtn || !nextBtn) return;
 
-    const cards = $$(cardSelector, track);
-    if (!cards.length) return;
+  // =========================================================
+  // GENERIC CAROUSEL
+  // =========================================================
+
+  function initCarousel(
+    trackSelector,
+    prevSelector,
+    nextSelector,
+    cardSelector =
+      ".media-card, .info-slide, .community-card"
+  ) {
+    const track =
+      $(trackSelector);
+
+    const prevButton =
+      $(prevSelector);
+
+    const nextButton =
+      $(nextSelector);
+
+    if (
+      !track ||
+      !prevButton ||
+      !nextButton
+    ) {
+      return;
+    }
+
+    const cards =
+      $$(cardSelector, track);
+
+    if (!cards.length) {
+      return;
+    }
+
 
     function setCenterHighlight() {
-      const center = track.scrollLeft + track.clientWidth / 2;
-      let closest = null;
-      let closestDist = Infinity;
+      const center =
+        track.scrollLeft +
+        track.clientWidth / 2;
+
+      let closestCard = null;
+      let closestDistance =
+        Infinity;
 
       cards.forEach((card) => {
-        const cardCenter = card.offsetLeft + card.offsetWidth / 2;
-        const dist = Math.abs(center - cardCenter);
-        card.classList.remove("is-center");
+        const cardCenter =
+          card.offsetLeft +
+          card.offsetWidth / 2;
 
-        if (dist < closestDist) {
-          closestDist = dist;
-          closest = card;
+        const distance =
+          Math.abs(
+            center - cardCenter
+          );
+
+        card.classList.remove(
+          "is-center"
+        );
+
+        if (
+          distance <
+          closestDistance
+        ) {
+          closestDistance =
+            distance;
+
+          closestCard =
+            card;
         }
       });
 
-      if (closest) closest.classList.add("is-center");
+      if (closestCard) {
+        closestCard.classList.add(
+          "is-center"
+        );
+      }
     }
 
-    function scrollByOne(dir) {
-      const cardW = cards[0].getBoundingClientRect().width;
-      const styles = getComputedStyle(track);
-      const gap = parseFloat(styles.gap) || parseFloat(styles.columnGap) || 18;
+
+    function scrollByOne(
+      direction
+    ) {
+      const cardWidth =
+        cards[0]
+          .getBoundingClientRect()
+          .width;
+
+      const styles =
+        getComputedStyle(track);
+
+      const gap =
+        parseFloat(styles.gap) ||
+        parseFloat(
+          styles.columnGap
+        ) ||
+        18;
 
       track.scrollBy({
-        left: dir * (cardW + gap),
-        behavior: "smooth",
+        left:
+          direction *
+          (cardWidth + gap),
+
+        behavior: "smooth"
       });
 
-      setTimeout(setCenterHighlight, 250);
+      setTimeout(
+        setCenterHighlight,
+        300
+      );
     }
 
-    prevBtn.addEventListener("click", () => scrollByOne(-1));
-    nextBtn.addEventListener("click", () => scrollByOne(1));
-    track.addEventListener("scroll", () => requestAnimationFrame(setCenterHighlight));
-    window.addEventListener("resize", setCenterHighlight);
 
-    setTimeout(setCenterHighlight, 120);
+    prevButton.addEventListener(
+      "click",
+      () => {
+        scrollByOne(-1);
+      }
+    );
+
+    nextButton.addEventListener(
+      "click",
+      () => {
+        scrollByOne(1);
+      }
+    );
+
+    track.addEventListener(
+      "scroll",
+      () => {
+        requestAnimationFrame(
+          setCenterHighlight
+        );
+      }
+    );
+
+    window.addEventListener(
+      "resize",
+      setCenterHighlight
+    );
+
+    setTimeout(
+      setCenterHighlight,
+      120
+    );
   }
 
-  // ===== Initialize Carousels =====
-    initCarousel(
-    "#communityTrack",
-    '.carousel-btn.prev[data-carousel="community"]',
-    '.carousel-btn.next[data-carousel="community"]'
-  );
-  
-  initCarousel(
-    "#musicTrack",
-    '.carousel-btn.prev[data-carousel="music"]',
-    '.carousel-btn.next[data-carousel="music"]'
-  );
 
-  initCarousel(
-    "#artTrack",
-    '.carousel-btn.prev[data-carousel="art"]',
-    '.carousel-btn.next[data-carousel="art"]'
-  );
+  // =========================================================
+  // INITIALIZE CAROUSELS
+  // =========================================================
 
   initCarousel(
     "#experienceTrack",
@@ -173,88 +320,237 @@ document.addEventListener("DOMContentLoaded", () => {
     '.carousel-btn.next[data-carousel="volunteering"]'
   );
 
-  // ===== Shared Lightbox =====
-  const lightbox = $("#lightbox");
-  const lightboxContent = $("#lightboxContent");
-  const lightboxClose = $("#lightboxClose");
-  const lightboxPrev = $("#lightboxPrev");
-  const lightboxNext = $("#lightboxNext");
+  initCarousel(
+    "#communityTrack",
+    '.carousel-btn.prev[data-carousel="community"]',
+    '.carousel-btn.next[data-carousel="community"]'
+  );
 
-  const artItems = $$("#artTrack .art-card");
+  initCarousel(
+    "#musicTrack",
+    '.carousel-btn.prev[data-carousel="music"]',
+    '.carousel-btn.next[data-carousel="music"]'
+  );
+
+  initCarousel(
+    "#artTrack",
+    '.carousel-btn.prev[data-carousel="art"]',
+    '.carousel-btn.next[data-carousel="art"]'
+  );
+
+
+  // =========================================================
+  // LIGHTBOX SETUP
+  // =========================================================
+
+  const lightbox =
+    $("#lightbox");
+
+  const lightboxContent =
+    $("#lightboxContent");
+
+  const lightboxClose =
+    $("#lightboxClose");
+
+  const lightboxPrev =
+    $("#lightboxPrev");
+
+  const lightboxNext =
+    $("#lightboxNext");
+
+  const artItems =
+    $$("#artTrack .art-card");
+
   let currentArtIndex = 0;
   let lightboxMode = null;
+
 
   function isMobileView() {
     return window.innerWidth <= 768;
   }
 
-  function openLightbox(html, mode = null, showArrows = false) {
-    if (!lightbox || !lightboxContent) return;
+
+  function openLightbox(
+    html,
+    mode = null,
+    showArrows = false
+  ) {
+    if (
+      !lightbox ||
+      !lightboxContent
+    ) {
+      return;
+    }
 
     lightboxMode = mode;
-    lightboxContent.innerHTML = html;
-    lightbox.classList.add("open");
-    lightbox.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
 
-    if (lightboxPrev) lightboxPrev.style.display = showArrows ? "grid" : "none";
-    if (lightboxNext) lightboxNext.style.display = showArrows ? "grid" : "none";
+    lightboxContent.innerHTML =
+      html;
+
+    lightbox.classList.add(
+      "open"
+    );
+
+    lightbox.setAttribute(
+      "aria-hidden",
+      "false"
+    );
+
+    document.body.style.overflow =
+      "hidden";
+
+    if (lightboxPrev) {
+      lightboxPrev.style.display =
+        showArrows
+          ? "grid"
+          : "none";
+    }
+
+    if (lightboxNext) {
+      lightboxNext.style.display =
+        showArrows
+          ? "grid"
+          : "none";
+    }
   }
+
 
   function closeLightbox() {
-    if (!lightbox || !lightboxContent) return;
+    if (
+      !lightbox ||
+      !lightboxContent
+    ) {
+      return;
+    }
 
-    lightbox.classList.remove("open");
-    lightbox.setAttribute("aria-hidden", "true");
-    lightboxContent.innerHTML = "";
-    document.body.style.overflow = "";
+    lightbox.classList.remove(
+      "open"
+    );
 
-    if (lightboxPrev) lightboxPrev.style.display = "grid";
-    if (lightboxNext) lightboxNext.style.display = "grid";
+    lightbox.setAttribute(
+      "aria-hidden",
+      "true"
+    );
+
+    lightboxContent.innerHTML =
+      "";
+
+    document.body.style.overflow =
+      "";
+
+    lightboxMode = null;
   }
+
 
   function attachCaptionToggle() {
-    const wrap = $("#lightboxMediaWrap");
-    if (!wrap) return;
+    const wrapper =
+      $("#lightboxMediaWrap");
 
-    wrap.addEventListener("click", (e) => {
-      if (!isMobileView()) return;
-      e.stopPropagation();
-      wrap.classList.toggle("caption-visible");
-    });
+    if (!wrapper) {
+      return;
+    }
+
+    wrapper.addEventListener(
+      "click",
+      (event) => {
+        if (!isMobileView()) {
+          return;
+        }
+
+        event.stopPropagation();
+
+        wrapper.classList.toggle(
+          "caption-visible"
+        );
+      }
+    );
   }
 
-  // ===== Art Lightbox =====
+
+  // =========================================================
+  // ART LIGHTBOX
+  // =========================================================
+
   function getArtData(item) {
-    const img = $(".media-thumb", item);
+    if (!item) {
+      return {
+        src: "",
+        alt: "Artwork",
+        title: "Artwork",
+        description: ""
+      };
+    }
+
+    const image =
+      $(".media-thumb", item);
+
+    const data =
+      $(".art-data", item);
+
+    const previewTitle =
+      $(
+        ".art-overlay-preview h3",
+        item
+      );
+
     const title =
-      $(".art-overlay-preview h3", item)?.textContent ||
-      $(".art-data", item)?.dataset.title ||
-      img?.alt ||
+      previewTitle?.textContent ||
+      data?.dataset.title ||
+      image?.alt ||
       "Artwork";
 
-    const description = $(".art-data", item)?.dataset.description || "";
+    const description =
+      data?.dataset.description ||
+      "";
 
     return {
-      src: img?.src || "",
-      alt: img?.alt || "Artwork",
+      src:
+        image?.src || "",
+
+      alt:
+        image?.alt ||
+        "Artwork",
+
       title,
-      description,
+
+      description
     };
   }
 
-  function renderArtLightbox(index) {
-    const art = getArtData(artItems[index]);
+
+  function renderArtLightbox(
+    index
+  ) {
+    if (!artItems.length) {
+      return;
+    }
+
+    const art =
+      getArtData(
+        artItems[index]
+      );
 
     openLightbox(
       `
-      <div class="lightbox-media-wrap" id="lightboxMediaWrap">
-        <img class="lightbox-media" src="${art.src}" alt="${art.alt}">
-        <div class="lightbox-caption">
-          <h3>${art.title}</h3>
-          <p>${art.description}</p>
+        <div
+          class="lightbox-media-wrap"
+          id="lightboxMediaWrap"
+        >
+
+          <img
+            class="lightbox-media"
+            src="${art.src}"
+            alt="${art.alt}"
+          >
+
+          <div
+            class="lightbox-caption"
+          >
+            <h3>${art.title}</h3>
+            <p>${art.description}</p>
+          </div>
+
         </div>
-      </div>
       `,
       "art",
       true
@@ -263,53 +559,122 @@ document.addEventListener("DOMContentLoaded", () => {
     attachCaptionToggle();
   }
 
-  function showNextArt(e) {
-    if (e) {
-      e.preventDefault();
-      e.stopPropagation();
+
+  function showNextArt(event) {
+    if (event) {
+      event.preventDefault();
+      event.stopPropagation();
     }
 
-    if (lightboxMode !== "art" || !artItems.length) return;
-
-    currentArtIndex = (currentArtIndex + 1) % artItems.length;
-    renderArtLightbox(currentArtIndex);
-  }
-
-  function showPrevArt(e) {
-    if (e) {
-      e.preventDefault();
-      e.stopPropagation();
+    if (
+      lightboxMode !== "art" ||
+      !artItems.length
+    ) {
+      return;
     }
 
-    if (lightboxMode !== "art" || !artItems.length) return;
+    currentArtIndex =
+      (currentArtIndex + 1) %
+      artItems.length;
 
-    currentArtIndex = (currentArtIndex - 1 + artItems.length) % artItems.length;
-    renderArtLightbox(currentArtIndex);
+    renderArtLightbox(
+      currentArtIndex
+    );
   }
 
-  artItems.forEach((item, index) => {
-    item.addEventListener("click", () => {
-      currentArtIndex = index;
-      renderArtLightbox(currentArtIndex);
-    });
-  });
 
-  // ===== Community Lightbox =====
-  function openCommunityLightbox(card) {
-    const img = $("img", card);
-    const data = $(".community-data", card);
-    const title = data?.dataset.title || img?.alt || "Community Highlight";
-    const description = data?.dataset.description || "";
+  function showPreviousArt(
+    event
+  ) {
+    if (event) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    if (
+      lightboxMode !== "art" ||
+      !artItems.length
+    ) {
+      return;
+    }
+
+    currentArtIndex =
+      (
+        currentArtIndex -
+        1 +
+        artItems.length
+      ) %
+      artItems.length;
+
+    renderArtLightbox(
+      currentArtIndex
+    );
+  }
+
+
+  artItems.forEach(
+    (item, index) => {
+      item.addEventListener(
+        "click",
+        () => {
+          currentArtIndex =
+            index;
+
+          renderArtLightbox(
+            currentArtIndex
+          );
+        }
+      );
+    }
+  );
+
+
+  // =========================================================
+  // COMMUNITY LIGHTBOX
+  // =========================================================
+
+  function openCommunityLightbox(
+    card
+  ) {
+    const image =
+      $("img", card);
+
+    const data =
+      $(".community-data", card);
+
+    const title =
+      data?.dataset.title ||
+      image?.alt ||
+      "Community Highlight";
+
+    const description =
+      data?.dataset.description ||
+      "";
 
     openLightbox(
       `
-      <div class="lightbox-media-wrap" id="lightboxMediaWrap">
-        <img class="lightbox-media" src="${img?.src || ""}" alt="${img?.alt || "Community photo"}">
-        <div class="lightbox-caption">
-          <h3>${title}</h3>
-          <p>${description}</p>
+        <div
+          class="lightbox-media-wrap"
+          id="lightboxMediaWrap"
+        >
+
+          <img
+            class="lightbox-media"
+            src="${image?.src || ""}"
+            alt="${
+              image?.alt ||
+              "Community photo"
+            }"
+          >
+
+          <div
+            class="lightbox-caption"
+          >
+            <h3>${title}</h3>
+            <p>${description}</p>
+          </div>
+
         </div>
-      </div>
       `,
       "community",
       false
@@ -318,71 +683,188 @@ document.addEventListener("DOMContentLoaded", () => {
     attachCaptionToggle();
   }
 
-  $$(".community-card").forEach((card) => {
-    card.addEventListener("click", (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      openCommunityLightbox(card);
-    });
-  });
 
-  // ===== Media Lightbox =====
-  function openMediaLightbox(media) {
-    if (!lightbox || !lightboxContent) return;
+  $$(".community-card").forEach(
+    (card) => {
+      card.addEventListener(
+        "click",
+        (event) => {
+          event.preventDefault();
+          event.stopPropagation();
 
-    const clone = media.cloneNode(true);
+          openCommunityLightbox(
+            card
+          );
+        }
+      );
+    }
+  );
 
-    if (clone.tagName === "VIDEO") {
+
+  // =========================================================
+  // MUSIC / VIDEO LIGHTBOX
+  // =========================================================
+
+  function openMediaLightbox(
+    media
+  ) {
+    if (
+      !lightbox ||
+      !lightboxContent
+    ) {
+      return;
+    }
+
+    const clone =
+      media.cloneNode(true);
+
+    if (
+      clone.tagName === "VIDEO"
+    ) {
       clone.controls = true;
       clone.autoplay = true;
       clone.muted = false;
       clone.playsInline = true;
     }
 
-    lightboxContent.innerHTML = "";
-    lightboxContent.appendChild(clone);
-    lightbox.classList.add("open");
-    lightbox.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
+    lightboxContent.innerHTML =
+      "";
 
-    if (lightboxPrev) lightboxPrev.style.display = "none";
-    if (lightboxNext) lightboxNext.style.display = "none";
+    lightboxContent.appendChild(
+      clone
+    );
+
+    lightbox.classList.add(
+      "open"
+    );
+
+    lightbox.setAttribute(
+      "aria-hidden",
+      "false"
+    );
+
+    document.body.style.overflow =
+      "hidden";
+
+    if (lightboxPrev) {
+      lightboxPrev.style.display =
+        "none";
+    }
+
+    if (lightboxNext) {
+      lightboxNext.style.display =
+        "none";
+    }
 
     lightboxMode = "media";
   }
 
-  $$("#musicTrack .media-thumb").forEach((media) => {
-    media.addEventListener("click", (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      openMediaLightbox(media);
-    });
+
+  $$(
+    "#musicTrack .media-thumb"
+  ).forEach((media) => {
+    media.addEventListener(
+      "click",
+      (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+
+        openMediaLightbox(
+          media
+        );
+      }
+    );
   });
 
-  // ===== Lightbox Events =====
-  lightboxClose?.addEventListener("click", closeLightbox);
-  lightboxNext?.addEventListener("click", showNextArt);
-  lightboxPrev?.addEventListener("click", showPrevArt);
 
-  lightbox?.addEventListener("click", (e) => {
-    if (e.target === lightbox) closeLightbox();
-  });
+  // =========================================================
+  // LIGHTBOX EVENTS
+  // =========================================================
 
-  document.addEventListener("keydown", (e) => {
-    if (!lightbox?.classList.contains("open")) return;
+  lightboxClose?.addEventListener(
+    "click",
+    closeLightbox
+  );
 
-    if (e.key === "Escape") closeLightbox();
-    if (e.key === "ArrowRight") showNextArt();
-    if (e.key === "ArrowLeft") showPrevArt();
-  });
+  lightboxNext?.addEventListener(
+    "click",
+    showNextArt
+  );
 
-  // ===== Email Reveal =====
-  const emailBtn = $("#emailBtn");
-  const emailReveal = $("#emailReveal");
+  lightboxPrev?.addEventListener(
+    "click",
+    showPreviousArt
+  );
 
-  if (emailBtn && emailReveal) {
-    emailBtn.addEventListener("click", () => {
-      emailReveal.style.display = "block";
-    });
+
+  lightbox?.addEventListener(
+    "click",
+    (event) => {
+      if (
+        event.target === lightbox
+      ) {
+        closeLightbox();
+      }
+    }
+  );
+
+
+  document.addEventListener(
+    "keydown",
+    (event) => {
+      if (
+        !lightbox?.classList.contains(
+          "open"
+        )
+      ) {
+        return;
+      }
+
+      if (
+        event.key === "Escape"
+      ) {
+        closeLightbox();
+      }
+
+      if (
+        event.key ===
+          "ArrowRight" &&
+        lightboxMode === "art"
+      ) {
+        showNextArt();
+      }
+
+      if (
+        event.key ===
+          "ArrowLeft" &&
+        lightboxMode === "art"
+      ) {
+        showPreviousArt();
+      }
+    }
+  );
+
+
+  // =========================================================
+  // EMAIL REVEAL
+  // =========================================================
+
+  const emailBtn =
+    $("#emailBtn");
+
+  const emailReveal =
+    $("#emailReveal");
+
+  if (
+    emailBtn &&
+    emailReveal
+  ) {
+    emailBtn.addEventListener(
+      "click",
+      () => {
+        emailReveal.style.display =
+          "block";
+      }
+    );
   }
 });
