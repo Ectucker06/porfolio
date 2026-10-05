@@ -17,19 +17,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const toggleIcon = menuToggle ? $("i", menuToggle) : null;
 
   if (menuToggle && navMenu && toggleIcon) {
-    menuToggle.addEventListener("click", () => {
-      navMenu.classList.toggle("active");
+    function setMenuOpen(isOpen) {
+      navMenu.classList.toggle("active", isOpen);
+      toggleIcon.classList.toggle("fa-bars", !isOpen);
+      toggleIcon.classList.toggle("fa-times", isOpen);
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+    }
 
-      toggleIcon.classList.toggle("fa-bars");
-      toggleIcon.classList.toggle("fa-times");
+    menuToggle.addEventListener("click", () => {
+      setMenuOpen(!navMenu.classList.contains("active"));
     });
 
     $$("nav a").forEach((link) => {
       link.addEventListener("click", () => {
-        navMenu.classList.remove("active");
-
-        toggleIcon.classList.add("fa-bars");
-        toggleIcon.classList.remove("fa-times");
+        setMenuOpen(false);
       });
     });
   }
@@ -111,8 +113,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       event.preventDefault();
 
+      const headerHeight = $("header")?.getBoundingClientRect().height || 0;
+
       window.scrollTo({
-        top: target.offsetTop - 80,
+        top: window.scrollY + target.getBoundingClientRect().top - headerHeight - 12,
         behavior: "smooth"
       });
     });

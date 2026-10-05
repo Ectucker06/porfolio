@@ -153,6 +153,12 @@ header {
 .menu-toggle {
   display: none;
 
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+
   font-size: 1.5rem;
 
   color: #e6e9f0;
@@ -945,7 +951,7 @@ section .container {
 
   -webkit-overflow-scrolling: touch;
 
-  touch-action: pan-x;
+  touch-action: pan-x pan-y;
 }
 
 .info-track::-webkit-scrollbar,
@@ -1670,33 +1676,74 @@ section .container {
     position: fixed;
 
     top: 70px;
-    left: -100%;
+    right: 12px;
+    left: auto;
 
-    width: 100%;
-    height: calc(100vh - 70px);
+    width: min(340px, calc(100vw - 24px));
+    max-height: calc(100vh - 86px);
+    max-height: calc(100dvh - 86px);
+    overflow-y: auto;
 
-    background: rgba(12, 15, 23, 0.97);
+    padding: 12px;
+    gap: 6px;
 
     flex-direction: column;
 
-    align-items: center;
-    justify-content: flex-start;
+    align-items: stretch;
 
-    padding-top: 50px;
+    background: rgba(12, 15, 23, 0.98);
+    border: 1px solid rgba(34, 211, 238, 0.3);
+    border-radius: 8px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
 
-    gap: 4px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-8px);
 
-    transition: left 0.3s ease;
+    transition:
+      opacity 0.2s ease,
+      transform 0.2s ease,
+      visibility 0.2s ease;
   }
 
   nav ul.active {
-    left: 0;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  nav li {
+    width: 100%;
   }
 
   nav a {
-    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 8px 12px;
 
-    padding: 15px 0;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-left: 3px solid transparent;
+    border-radius: 6px;
+
+    color: #e6e9f0;
+    font-family: "Patrick Hand", cursive;
+    font-size: 1.2rem;
+  }
+
+  nav a::after {
+    display: none;
+  }
+
+  nav a:hover,
+  nav a:focus-visible {
+    color: var(--accent);
+    background: rgba(34, 211, 238, 0.08);
+    border-color: rgba(34, 211, 238, 0.35);
+    border-left-color: var(--accent);
+    outline: none;
   }
 
   .menu-toggle {
