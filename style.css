@@ -1678,8 +1678,7 @@ section .container {
     position: fixed;
 
     top: 70px;
-    right: 12px;
-    left: auto;
+    left: 50%;
 
     width: min(340px, calc(100vw - 24px));
     max-height: calc(100vh - 86px);
@@ -1701,7 +1700,7 @@ section .container {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transform: translateY(-8px);
+    transform: translate(-50%, -8px);
 
     transition:
       opacity 0.2s ease,
@@ -1713,7 +1712,7 @@ section .container {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
-    transform: translateY(0);
+    transform: translate(-50%, 0);
   }
 
   nav li {
