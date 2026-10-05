@@ -255,6 +255,8 @@ nav a:hover::after {
   white-space: nowrap;
 
   display: inline-block;
+  min-width: 1ch;
+  min-height: 1em;
 
   color: var(--accent);
 
